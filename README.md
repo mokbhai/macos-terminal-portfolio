@@ -6,7 +6,7 @@ An interactive macOS-inspired portfolio theme for Astro, featuring an AI-powered
 
 ## Features
 
-- OpenAI-powered terminal chat
+- Gemini-powered terminal chat
 - Dynamic rotating wallpapers
 - Responsive macOS-style dock
 - Built-in SEO optimization
@@ -21,7 +21,7 @@ An interactive macOS-inspired portfolio theme for Astro, featuring an AI-powered
 - [React](https://reactjs.org)
 - [TypeScript](https://www.typescriptlang.org)
 - [Tailwind CSS](https://tailwindcss.com)
-- [OpenAI API](https://openai.com/api)
+- [Google Gemini API](https://gemini.google.com/api)
 
 ## Integrations
 
@@ -35,12 +35,12 @@ An interactive macOS-inspired portfolio theme for Astro, featuring an AI-powered
 ### Prerequisites
 
 - Node.js (v18 or higher)
-- OpenAI API key
+- Google Gemini API key
 
 ### Installation
 
 1. Clone the repository:
-   `git clone https://github.com/yourusername/macos-terminal-portfolio`
+   `git clone https://github.com/mokbhai/macos-terminal-portfolio`
 
 2. Install dependencies:
    `npm install`
@@ -48,8 +48,8 @@ An interactive macOS-inspired portfolio theme for Astro, featuring an AI-powered
 3. Create a .env file in the root directory:
    `cp .env.example .env`
 
-4. Add your OpenAI API key to the .env file:
-   `OPENAI_API_KEY=your_api_key_here`
+4. Add your Google API key to the .env file:
+   `GEMINI_API_KEY=your_api_key_here`
 
 5. Start the development server:
    `npm run dev`
@@ -111,11 +111,13 @@ Contributions, issues, and feature requests are welcome!
 ## Acknowledgments
 
 - Inspired by macOS interface
-- Powered by OpenAI's API
+- Powered by Gemini's API
 - Built with Astro
 
 ## Contact
 
 For questions or support, please open an issue on GitHub.
 
-Made with ❤️ in Austin, TX by Johnny Culbreth
+Forked from https://github.com/johndoe/macos-terminal-portfolio
+
+Made with ❤️ in India by Mokshit Jain
