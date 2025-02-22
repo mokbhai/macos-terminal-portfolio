@@ -5,6 +5,8 @@ import react from '@astrojs/react';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
 
+import netlify from '@astrojs/netlify';
+
 export default defineConfig({
   // Replace with your website URL (required for sitemap generation)
   site: 'https://example.com',
@@ -31,7 +33,7 @@ export default defineConfig({
 
   // Deployment configuration
   output: 'server', // Server-side rendering - required for OpenAI API usage
-  adapter: vercel(), // Deploy to Vercel - optional
+  adapter: netlify(), // Deploy to Vercel - optional
   devToolbar: {
     enabled: false,
   },
