@@ -205,27 +205,32 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
   };
 
   return (
-    <div className="bg-black/75 w-[600px] h-[400px] rounded-lg overflow-hidden shadow-lg mx-4 sm:mx-0">
+    <div className="bg-black/75 w-full md:w-[800px] h-[400px] md:h-[600px] rounded-lg overflow-hidden shadow-lg mx-4 sm:mx-0">
       <div className="bg-gray-800 h-6 flex items-center space-x-2 px-4">
         <div className="w-3 h-3 rounded-full bg-red-500"></div>
         <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
         <div className="w-3 h-3 rounded-full bg-green-500"></div>
         <span className="text-sm text-gray-300 flex-grow text-center font-semibold flex items-center justify-center gap-2">
           <FaRegFolderClosed size={14} className="text-gray-300" />
-          mokshitjain.netlify.app ⸺ zsh
+          <span className="hidden sm:inline">mokshitjain.netlify.app</span>
+          <span className="sm:hidden">Terminal</span>⸺ zsh
         </span>
       </div>
-      <div className="p-4 text-gray-200 font-mono text-xs h-[calc(400px-1.5rem)] flex flex-col">
+      <div className="p-2 md:p-4 text-gray-200 font-mono text-xs md:text-sm h-[calc(400px-1.5rem)] md:h-[calc(600px-1.5rem)] flex flex-col">
         <div className="flex-1 overflow-y-auto">
           {chatHistory.messages.map((msg, index) => (
             <div key={index} className="mb-2">
               {msg.role === "user" ? (
                 <div className="flex items-start space-x-2">
                   <span className="text-green-400">{">"}</span>
-                  <pre className="whitespace-pre-wrap">{msg.content}</pre>
+                  <pre className="whitespace-pre-wrap break-words max-w-[calc(100vw-4rem)] md:max-w-full">
+                    {msg.content}
+                  </pre>
                 </div>
               ) : (
-                <pre className="whitespace-pre-wrap">{msg.content}</pre>
+                <pre className="whitespace-pre-wrap break-words max-w-[calc(100vw-4rem)] md:max-w-full">
+                  {msg.content}
+                </pre>
               )}
             </div>
           ))}
@@ -234,12 +239,14 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
         </div>
         <form onSubmit={handleSubmit} className="mt-2">
           <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-2">
-            <span className="whitespace-nowrap">mokshit@portfolio %</span>
+            <span className="whitespace-nowrap text-xs md:text-sm">
+              mokshit@portfolio %
+            </span>
             <input
               type="text"
               value={chatHistory.input}
               onChange={handleInputChange}
-              className="w-full sm:flex-1 bg-transparent outline-none text-white placeholder-gray-400"
+              className="w-full sm:flex-1 bg-transparent outline-none text-white placeholder-gray-400 text-xs md:text-sm"
               placeholder={placeholder}
             />
           </div>
