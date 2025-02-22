@@ -4,9 +4,12 @@ import { IoIosMail } from "react-icons/io";
 import { VscVscode } from "react-icons/vsc";
 import { RiTerminalFill } from "react-icons/ri";
 import { FaPhone } from "react-icons/fa6";
+import { useMotionValue } from "framer-motion";
+import { DockIcon } from "./DockIcon";
 
 export default function DesktopDock() {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
+  const mouseX = useMotionValue(Infinity);
 
   const handleEmailClick = () => {
     window.location.href = "mailto:mokshitjain18@gmail.com";
@@ -38,95 +41,107 @@ export default function DesktopDock() {
   );
 
   return (
-    <div className="fixed bottom-0 left-1/2 -translate-x-1/2 hidden md:block z-50">
-      <div className="relative mb-2 p-3 bg-gradient-to-t from-gray-700 to-gray-800 backdrop-blur-2xl rounded-2xl">
-        <div className="flex items-end space-x-4">
-          {/* VSCode */}
-          <button
+    <div
+      className="fixed bottom-0 left-1/2 -translate-x-1/2 hidden md:block z-50 font-[Arial] select-none"
+      onMouseMove={(e) => mouseX.set(e.pageX)}
+      onMouseLeave={() => mouseX.set(Infinity)}
+    >
+      <div
+        className="
+          m-auto mb-2
+          flex h-[4rem] items-end
+          gap-[6px] px-[10px]
+          backdrop-blur-[20px] rounded-[20px]
+          shadow-[0_4px_10px_rgba(0,0,0,0.2)]
+          bg-black/25
+          border border-white/10
+          transition-all duration-200
+        "
+      >
+        <div className="flex items-end">
+          <DockIcon
+            mouseX={mouseX}
             onClick={handleVSCodeClick}
             onMouseEnter={() => setHoveredIcon("vscode")}
             onMouseLeave={() => setHoveredIcon(null)}
-            className="relative"
           >
-            <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-lg">
-              <VscVscode size={45} className="text-blue-500" />
+            <div className="w-full h-full bg-white rounded-xl flex items-center justify-center shadow-lg">
+              <VscVscode className="w-full h-full p-1 text-blue-500" />
             </div>
             {hoveredIcon === "vscode" && <Tooltip text="Launch VS Code" />}
-          </button>
+          </DockIcon>
 
           {/* Email */}
-          <button
+          <DockIcon
+            mouseX={mouseX}
             onClick={handleEmailClick}
             onMouseEnter={() => setHoveredIcon("email")}
             onMouseLeave={() => setHoveredIcon(null)}
-            className="relative"
           >
-            <div className="w-14 h-14 bg-gradient-to-t from-blue-600 to-blue-400 rounded-xl flex items-center justify-center shadow-lg">
-              <IoIosMail size={45} className="text-white" />
+            <div className="w-full h-full bg-gradient-to-t from-blue-600 to-blue-400 rounded-xl flex items-center justify-center shadow-lg">
+              <IoIosMail className="w-full h-full p-1 text-white" />
             </div>
             {hoveredIcon === "email" && <Tooltip text="Email Me" />}
-          </button>
+          </DockIcon>
 
           {/* Github */}
-          <button
+          <DockIcon
+            mouseX={mouseX}
             onClick={handleGithubClick}
             onMouseEnter={() => setHoveredIcon("github")}
             onMouseLeave={() => setHoveredIcon(null)}
-            className="relative"
           >
-            <div className="w-14 h-14 bg-gradient-to-t from-black to-black/60 rounded-xl flex items-center justify-center shadow-lg">
-              <BsGithub size={45} className="text-gray-100" />
+            <div className="w-full h-full bg-gradient-to-t from-black to-black/60 rounded-xl flex items-center justify-center shadow-lg">
+              <BsGithub className="w-full h-full p-1.5 text-gray-100" />
             </div>
             {hoveredIcon === "github" && <Tooltip text="My GitHub" />}
-          </button>
+          </DockIcon>
 
           {/* LinkedIn */}
-          <button
+          <DockIcon
+            mouseX={mouseX}
             onClick={handleLinkedInClick}
             onMouseEnter={() => setHoveredIcon("linkedin")}
             onMouseLeave={() => setHoveredIcon(null)}
-            className="relative"
           >
-            <div className="w-14 h-14 bg-gradient-to-t from-[#0077B5] to-[#0077B5]/60 rounded-xl flex items-center justify-center shadow-lg">
-              <BsLinkedin size={45} className="text-white" />
+            <div className="w-full h-full bg-gradient-to-t from-[#0077B5] to-[#0077B5]/60 rounded-xl flex items-center justify-center shadow-lg">
+              <BsLinkedin className="w-full h-full p-1 text-white" />
             </div>
             {hoveredIcon === "linkedin" && <Tooltip text="My LinkedIn" />}
-          </button>
+          </DockIcon>
 
           {/* Phone */}
-          <button
+          <DockIcon
+            mouseX={mouseX}
             onClick={handlePhoneClick}
             onMouseEnter={() => setHoveredIcon("phone")}
             onMouseLeave={() => setHoveredIcon(null)}
-            className="relative"
           >
-            <div className="w-14 h-14 bg-gradient-to-t from-green-600 to-green-400 rounded-xl flex items-center justify-center shadow-lg">
-              <FaPhone size={35} className="text-white" />
+            <div className="w-full h-full bg-gradient-to-t from-green-600 to-green-400 rounded-xl flex items-center justify-center shadow-lg">
+              <FaPhone className="w-full h-full p-1.5 text-white" />
             </div>
             {hoveredIcon === "phone" && <Tooltip text="Call Me" />}
-          </button>
+          </DockIcon>
 
-          {/* Divider */}
-          <div className="flex items-center">
-            <div className="w-px h-14 bg-white/20" />
-          </div>
+          {/* Update divider */}
+          <div className="w-px h-14 bg-white/10 mx-2" />
 
           {/* Terminal */}
-          <button
+          <DockIcon
+            mouseX={mouseX}
             onMouseEnter={() => setHoveredIcon("terminal")}
             onMouseLeave={() => setHoveredIcon(null)}
-            className="relative"
           >
-            <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-lg">
+            <div className="w-full h-full rounded-2xl overflow-hidden shadow-lg">
               <div className="absolute inset-0 bg-gradient-to-b from-gray-300 to-gray-500 rounded-xl"></div>
               <div className="absolute inset-[2px] rounded-xl bg-black">
                 <div className="absolute top-1 left-2">
-                  <RiTerminalFill size={20} className="text-white" />
+                  <RiTerminalFill className="w-full h-full p-1 text-white" />
                 </div>
               </div>
             </div>
             {hoveredIcon === "terminal" && <Tooltip text="Chat with Me" />}
-          </button>
+          </DockIcon>
         </div>
       </div>
     </div>
