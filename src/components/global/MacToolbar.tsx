@@ -1,7 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { TopBarMenu } from "../../data/menu";
+import { MdWifi } from "react-icons/md";
+import { FaApple } from "react-icons/fa";
+import {
+  IoSearchSharp,
+  IoBatteryHalfOutline,
+  IoCellular,
+} from "react-icons/io5";
+import { VscVscode } from "react-icons/vsc";
 
 export default function MacToolbar() {
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -16,8 +25,43 @@ export default function MacToolbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 60000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const handleMenuClick = (label: string) => {
     setActiveMenu(activeMenu === label ? null : label);
+  };
+
+  const formatMacDate = (date: Date) => {
+    const weekday = date.toLocaleString("en-US", { weekday: "short" });
+    const month = date.toLocaleString("en-US", { month: "short" });
+    const day = date.getDate();
+    const hour = date.toLocaleString("en-US", {
+      hour: "numeric",
+      hour12: true,
+    });
+    const minute = date.getMinutes().toString().padStart(2, "0");
+    const period = date.getHours() >= 12 ? "PM" : "AM";
+
+    return `${weekday} ${month} ${day} ${hour.replace(
+      /\s?[AP]M/,
+      ""
+    )}:${minute} ${period}`;
+  };
+
+  const formatIPhoneTime = (date: Date) => {
+    let hour = date.getHours();
+    const minute = date.getMinutes().toString().padStart(2, "0");
+
+    hour = hour % 12;
+    hour = hour ? hour : 12;
+
+    return `${hour}:${minute}`;
   };
 
   const MenuDropdown = ({ items }: { items: (string | null)[] }) => (
@@ -38,25 +82,48 @@ export default function MacToolbar() {
   );
 
   return (
-    <div
-      ref={menuRef}
-      className="fixed top-0 left-0 right-0 h-7 bg-[#1d1d1f]/80 backdrop-blur-md z-50 flex items-center px-4 text-white/90"
-    >
-      <div className="flex items-center space-x-4">
-        {TopBarMenu.map(({ label, children }) => (
-          <div key={label} className="relative">
-            <button
-              onClick={() => handleMenuClick(label)}
-              className={`px-2 text-sm hover:bg-white/10 rounded ${
-                activeMenu === label ? "bg-white/10" : ""
-              }`}
-            >
-              {label === "icon" ? "🍎" : label}
-            </button>
-            {activeMenu === label && <MenuDropdown items={children} />}
-          </div>
-        ))}
+    <>
+      <div className="sticky top-0 z-50 md:hidden bg-transparent text-white h-12 px-8 flex items-center justify-between text-base font-medium">
+        <span className="font-semibold">
+          {formatIPhoneTime(currentDateTime)}
+        </span>
+        <div className="flex items-center gap-1.5">
+          <IoCellular size={20} />
+          <MdWifi size={20} />
+          <IoBatteryHalfOutline size={24} />
+        </div>
       </div>
-    </div>
+
+      <div className="sticky top-0 z-50 hidden md:flex bg-black/20 backdrop-blur-md text-white h-6 px-4 items-center justify-between text-sm">
+        <div className="flex items-center space-x-4">
+          {TopBarMenu.map(({ label, children }) => (
+            <div key={label} className="relative">
+              <button
+                onClick={() => handleMenuClick(label)}
+                className={`px-2 text-sm hover:bg-white/10 rounded ${
+                  activeMenu === label ? "bg-white/10" : ""
+                }`}
+              >
+                {label === "icon" ? <FaApple size={16} /> : label}
+              </button>
+              {activeMenu === label && <MenuDropdown items={children} />}
+            </div>
+          ))}
+        </div>
+        
+        <div className="flex items-center space-x-4">
+          <VscVscode
+            size={16}
+            className="cursor-default hover:opacity-80 transition-opacity"
+            title="Open in VSCode"
+          />
+          <MdWifi size={16} />
+          <IoSearchSharp size={16} />
+          <span className="cursor-default">
+            {formatMacDate(currentDateTime)}
+          </span>
+        </div>
+      </div>
+    </>
   );
 }
