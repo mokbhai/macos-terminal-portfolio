@@ -9,10 +9,10 @@ import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   // Replace with your website URL (required for sitemap generation)
-  site: 'https://example.com',
+  site: "https://macos-mokshitjain-portfolio.netlify.app",
 
   // URL configuration
-  trailingSlash: 'never', // Removes trailing slashes from URLs
+  trailingSlash: "never", // Removes trailing slashes from URLs
 
   // Vite configuration
   vite: {
@@ -25,14 +25,14 @@ export default defineConfig({
     sitemap({
       // Generates sitemap
       serialize: (item) => {
-        const url = item.url.endsWith('/') ? item.url.slice(0, -1) : item.url;
+        const url = item.url.endsWith("/") ? item.url.slice(0, -1) : item.url;
         return { ...item, url };
       },
     }),
   ],
 
   // Deployment configuration
-  output: 'server', // Server-side rendering - required for OpenAI API usage
+  output: "server", // Server-side rendering - required for OpenAI API usage
   adapter: netlify(), // Deploy to Vercel - optional
   devToolbar: {
     enabled: false,
