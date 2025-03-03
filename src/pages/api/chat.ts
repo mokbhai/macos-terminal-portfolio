@@ -20,7 +20,7 @@ export const POST: APIRoute = async ({ request }) => {
     const { messages } = await request.json();
 
     const genAI = new GoogleGenerativeAI(import.meta.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     // Add system prompt to the conversation
     const formattedMessages = [
