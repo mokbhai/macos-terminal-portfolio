@@ -5,9 +5,11 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import netlify from '@astrojs/netlify';
 
+import node from '@astrojs/node';
+
 export default defineConfig({
   // Replace with your website URL (required for sitemap generation)
-  site: "https://macos-mokshitjain-portfolio.netlify.app",
+  site: "https://mokshitjain.jainparichay.in",
 
   // URL configuration
   trailingSlash: "never", // Removes trailing slashes from URLs
@@ -30,8 +32,10 @@ export default defineConfig({
   ],
 
   // Deployment configuration
-  output: "server", // Server-side rendering - required for OpenAI API usage
-  adapter: netlify(), // Deploy to Vercel - optional
+  output: "server",
+  adapter: node({
+    mode: "standalone",
+  }),
   devToolbar: {
     enabled: false,
   },

@@ -14,10 +14,12 @@ type ChatHistory = {
 // Update placeholder messages to be more relevant to your background
 const PLACEHOLDER_MESSAGES = [
   "Type your question...",
-  "Tell me about your IoT projects",
-  "What are your full-stack skills?",
-  "Tell me about your work at Innovation Studio",
-  "What technologies do you use?",
+  "Tell me about your work at AIRIA",
+  "What's the Run Application you built?",
+  "Tell me about your AI agents projects",
+  "How did you automate testing?",
+  "What's your experience with vehicle management systems?",
+  "Tell me about AutoTube project",
 ];
 
 export default function MacTerminal() {
@@ -66,16 +68,18 @@ export default function MacTerminal() {
   const welcomeMessage = `Welcome to My Portfolio
 
 Name: Mokshit Jain
-Role: Software Developer & IoT Engineer
-Education: BTech Computer Science, LPU (2022-2026)
+Role: Full-stack Developer
+Education: BTech Computer Science, LPU (2022-2026) - CGPA 7.7/10
 
 Contact: mokshitjain18@gmail.com
 Phone: +91-7000209021
 GitHub: github.com/mokbhai
 LinkedIn: linkedin.com/in/mokshit-jain
-Website: mokshitjain.netlify.app
 
-Ask me anything about my software development, IoT projects, or technical expertise!
+Currently: Software Developer at AIRIA (Apr 2025 - Present)
+Building AI agents, SaaS applications, and automation tools
+
+Ask me anything about my software development, AI agents, or technical expertise!
 `;
 
   const currentDate = new Date();
@@ -91,36 +95,55 @@ CURRENT DATE: ${formattedDate} - Always use this exact date when discussing the 
 
 Core details about me:
 - I'm a BTech Computer Science student at Lovely Professional University (2022-2026)
-- GPA: 7.61/10
-- I'm based in Punjab, India
-- I'm a Software Developer & IoT Engineer specializing in full-stack and IoT development
+- CGPA: 7.7/10
+- I'm based in India
+- I'm a Full-stack developer with strong expertise in React, Node.js, and TypeScript
 - Contact: mokshitjain18@gmail.com, +91-7000209021
 
-Experience:
-- Developer at Innovation Studio & Ministry of Defense (Nov 2024 - Jan 2025)
-  * Built vehicle management system processing 10,000+ daily movements
-  * Improved efficiency by 85% through automation
-- Project Lead at Innovation Studio (June 2024 - Aug 2024)
-  * Led MERN-stack event platform development
-  * Generated ₹1.5 lakh revenue through automation
+Current Experience:
+- Software Developer at AIRIA (Apr 2025 - Present)
+  * Leading end-to-end development of Run Application (React frontend, Node.js backend, AI agents)
+  * Built intelligent agents for fitness, running, and nutrition management with contextual user tracking
+  * Helping users improve running performance by 10-20% on average
+  * Automated API regression testing using GitHub CI/CD
+  * Automated UI testing using Custom AI Agents, Chrome extensions and Playwright scripts
+  * Reduced manual QA effort by 80%
+
+Previous Experience:
+- Project Manager & Software Developer at Innovation Studio & Ministry of Defence (Nov 2024 - Jan 2025)
+  * Ensured 100% on-time delivery of project milestones
+  * Architected vehicle management system processing 10,000+ daily movements across 100+ checkpoints
+  * Reduced processing time from 48 hours to 5 minutes (85% efficiency boost)
+  * Enhanced security with MFA, session management, and RBAC
+  * Demo: https://youtu.be/3xswnyAoGAU
+
+- Project Lead & Full Stack Developer at Innovation Studio (June 2024 - Aug 2024)
+  * Led team to generate ₹1.5 lakh revenue through registration system and payment integration
+  * Increased registration efficiency by 80%, eliminated 15 hours of weekly manual work
+  * Developed WhatsApp bot with 90% response accuracy
+  * Achieved 100% approval rating from project stakeholders
 
 Notable Projects:
-- Thrombocizer: IoT control platform managing 10,000+ devices
-- Hireza: AI-powered job matching platform with 90% accuracy
-- SwiftAid: Emergency response platform with real-time tracking
+- AutoTube: AI-Powered Text-to-Video Content Generator (Mar 2024)
+  * Automated content generation pipeline converting text to YouTube-ready videos
+  * Reduced manual content creation time by 80%
+  * Multi-language support using Google Translate
+  * Microsoft Edge TTS integration for natural voice synthesis
+  * FFmpeg for automated video assembly
+  * Example: https://www.youtube.com/@mokbhaimj
 
-Achievements:
-- 1st place in CipherThon hackathon (Hireza project)
-- Finalist in Medha 2024 Hackathon (Thrombocizer)
-- Delivered multiple full-stack applications with real-time capabilities
+- Thrombocizer: Exercising the Legs for Paralysed Patients (Sep 2024 - Nov 2024)
+  * Real-time exercise hardware prototype for patients using ESP32
+  * User-friendly web interface with Node.js and Websockets
+  * 3D Design: https://youtu.be/9ZLigz-kPJo
 
 Technical Skills:
-- Core: TypeScript, JavaScript, C++, Node.js, Git, Docker
-- Frontend: Next.js, React.js, Astro.js, TailwindCSS
-- Backend: Nest.js, Express.js, MongoDB, PostgreSQL
-- IoT: ESP32, Arduino, ESP8266
-- DevOps: Git, Docker, AWS
-- Other: Python, C#, Redis, Server Management
+- Languages: JavaScript, Python, TypeScript
+- Full-stack: Node.js, Nest.js, React.js, Next.js, TailwindCSS
+- Databases: MongoDB, SQL, Redis, PostgreSQL
+- DevOps: Git, Docker, AWS EC2
+- Product Management: Strategic Thinking, User-Centric Design, Agile Methodologies
+- Soft Skills: Teamwork, Leadership, Time Management, Adaptability, Critical Thinking
 
 Response rules:
 1. ALWAYS use first-person (I, me, my)
