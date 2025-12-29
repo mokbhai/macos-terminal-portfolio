@@ -24,16 +24,16 @@ const backgrounds = await Promise.all([
 
 <!-- SEO Configuration - customize these values -->
 <AstroSeo
-  title={Astro.props.title || 'Mokshit Jain - Software Developer & IoT Engineer'}
+  title={Astro.props.title || 'Mokshit Jain - Software Developer & AI Engineer'}
   description={Astro.props.description ||
-    'Software Developer and IoT Engineer specializing in full-stack development, IoT systems, and real-time applications. BTech Computer Science student at LPU.'}
+    'Software Developer and AI Engineer specializing in full-stack development, AI agents, automation, and LangGraph workflows. BTech Computer Science student at LPU with CGPA 7.8/10.'}
   canonical={Astro.props.canonical || 'https://mokshitjain.netlify.app'}
   openGraph={{
     url: Astro.props.openGraph?.url || 'https://mokshitjain.netlify.app',
-    title: Astro.props.openGraph?.title || 'Mokshit Jain - Software Developer & IoT Engineer',
+    title: Astro.props.openGraph?.title || 'Mokshit Jain - Software Developer & AI Engineer',
     description:
       Astro.props.openGraph?.description ||
-      'Software Developer and IoT Engineer specializing in full-stack development, IoT systems, and real-time applications. BTech Computer Science student at LPU.',
+      'Software Developer and AI Engineer specializing in full-stack development, AI agents, automation, and LangGraph workflows. BTech Computer Science student at LPU with CGPA 7.8/10.',
     images: [
       {
         url: '',
@@ -51,7 +51,7 @@ const backgrounds = await Promise.all([
 <meta name="twitter:creator" content="@your_twitter_handle" />
 
 <!-- Keywords for SEO -->
-<meta name="keywords" content="Mokshit Jain, Software Developer, IoT Engineer, Full Stack Developer, ESP32, Node.js, React.js, Next.js, Nest.js, MongoDB, PostgreSQL, Innovation Studio, LPU, Punjab" />
+<meta name="keywords" content="Mokshit Jain, Software Developer, AI Engineer, Full Stack Developer, AI Agents, LangGraph, Node.js, React.js, Next.js, Nest.js, MongoDB, PostgreSQL, AIRIA, Innovation Studio, LPU, Punjab" />
 
 <!-- Rich Results / Structured Data -->
 <script type="application/ld+json">
@@ -59,11 +59,12 @@ const backgrounds = await Promise.all([
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Mokshit Jain",
-    "jobTitle": "Software Developer & IoT Engineer",
+    "jobTitle": "Software Developer & AI Engineer",
     "url": "https://mokshitjain.netlify.app",
     "sameAs": [
       "https://github.com/mokbhai",
       "https://www.linkedin.com/in/mokshit-jain/",
+      "https://mokshit-bio.jainparichay.in/",
       "https://mokshitjain.netlify.app"
     ],
     "alumniOf": {
@@ -72,14 +73,17 @@ const backgrounds = await Promise.all([
     },
     "knowsAbout": [
       "Full Stack Development",
-      "IoT Systems",
-      "ESP32",
+      "AI Agents",
+      "LangGraph",
+      "Automation",
       "Node.js",
       "React.js",
       "Next.js",
       "Nest.js",
       "MongoDB",
-      "PostgreSQL"
+      "PostgreSQL",
+      "ChromaDB",
+      "Pinecone"
     ]
   }
 </script>
