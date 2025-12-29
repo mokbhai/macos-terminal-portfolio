@@ -17,7 +17,6 @@
     "@astrolib/seo": "^1.0.0-beta.8",
     "@google/generative-ai": "^0.22.0",
     "@tailwindcss/vite": "^4.0.3",
-    "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "astro": "^5.2.3",
     "framer-motion": "^12.4.7",
@@ -25,5 +24,8 @@
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
     "tailwindcss": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7"
   }
 }
